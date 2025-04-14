@@ -4,7 +4,7 @@
 export default function Home() {
   return (
     <div className="text-2xl">
-        HOME
+        THis is not home
     </div>
   );
 }
