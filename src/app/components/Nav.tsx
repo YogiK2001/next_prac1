@@ -9,6 +9,7 @@ const Nav = () => {
                 <Link href="/">
                     <Image src="/logo.png" alt="logo" width={144} height={30} />
                 </Link>
+                <div className="text-2xl" > This is the Nav Bar</div>
             </nav>
         </header>
     );
