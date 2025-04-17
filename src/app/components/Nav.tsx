@@ -1,8 +1,8 @@
-import React from 'react';
+
+
 import Link from "next/link";
 import Image from "next/image";
-import { signIn, signOut } from "next-auth/react"
-import { auth } from "@/l"
+import { auth, signIn, signOut } from "@/auth"
 
 const Nav = async () => {
     const session = await auth();
@@ -14,24 +14,32 @@ const Nav = async () => {
                 <Link href="/">
                     <Image src="/logo.png" alt="logo" width={144} height={30} />
                 </Link>
-                <div className="felx items-center gap-5 text-black" >
+                <div className="flex items-center gap-5 text-black" >
                     {session && session?.user ? (
                         <>
                             <Link href="/startup/create">
                                 <span>Create</span>
                             </Link>
 
-                            <button onClick={() => signOut()} >
-                                SignOut
-                            </button>
                             <Link href={`/user/${session?.id}`}>
                                 <span>{session?.user.name}</span>
                             </Link>
+                            <form action={async () => {
+                                "use server";
+                                await signOut()
+                            }} >
+                                <button type={'submit'} className="text-red-500 font-bold" > Log Out </button>
+                            </form>
                         </>
                     ): (
-                        <button onClick={() => signIn('github')} >
-                            <span> SignIn </span>
-                        </button>
+                        <form action={async () => {
+                            "use server";
+                            await signIn('github')
+                        }} >
+                            <button type={"submit"} >
+                                Log In
+                            </button>
+                        </form>
                     )}
                 </div>
             </nav>
