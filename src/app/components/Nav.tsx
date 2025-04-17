@@ -9,10 +9,10 @@ const Nav = async () => {
 
 
     return (
-        <header className="px-5 py-3 bg-white font-work-sans" >
+        <header className="px-10 py-3 bg-white font-work-sans" >
             <nav className="flex flex-row justify-between items-center" >
                 <Link href="/">
-                    <Image src="/logo.png" alt="logo" width={144} height={30} />
+                    <Image src="/logo.png" alt="logo" width={400} height={50} />
                 </Link>
                 <div className="flex items-center gap-5 text-black" >
                     {session && session?.user ? (
@@ -36,7 +36,7 @@ const Nav = async () => {
                             "use server";
                             await signIn('github')
                         }} >
-                            <button type={"submit"} >
+                            <button className="text-black font-bold bg-amber-200 rounded px-10 py-5 hover:text-white hover:bg-black-100" type={"submit"} >
                                 Log In
                             </button>
                         </form>
