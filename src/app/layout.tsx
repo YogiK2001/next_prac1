@@ -1,16 +1,32 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import localFont from "next/dist/compiled/@next/font/dist/local";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const helvatica = localFont({
+    src: [
+        {
+            path: './fonts/HelveticaNeueBold.otf',
+            weight: '600',
+            style: 'normal'
+        },
+        {
+            path: './fonts/HelveticaNeueMedium.otf',
+            weight: '400',
+            style: 'normal'
+        },
+        {
+            path: './fonts/HelveticaNeueLight.otf',
+            weight: '200',
+            style: 'normal'
+        },
+        {
+            path: './fonts/HelveticaNeueThin.otf',
+            weight: '100',
+            style: 'normal'
+        }
+    ]
+})
 
 export const metadata: Metadata = {
   title: "Hello Next JS 🥲",
