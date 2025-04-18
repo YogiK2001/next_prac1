@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import localFont from "next/dist/compiled/@next/font/dist/local";
+import localFont from "next/font/local";
 
 const helvatica = localFont({
     src: [
@@ -25,7 +24,8 @@ const helvatica = localFont({
             weight: '100',
             style: 'normal'
         }
-    ]
+    ],
+    variable: '--font-helvatica'
 })
 
 export const metadata: Metadata = {
@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={helvatica.variable}
       >
         {children}
       </body>
